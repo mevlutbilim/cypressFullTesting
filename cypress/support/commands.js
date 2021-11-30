@@ -1,14 +1,17 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
+/// <reference types="cypress" />
+Cypress.Commands.add('login', (email, password) => { 
+
+    cy.get('.ml-1 > .navbar-tool-text').click()
+    cy.get('#id_username_reg_pg').type(email)
+    cy.get('#id_password_reg_pg').type(password)
+    cy.get('#reg_pg_login_form > .text-right > .btn').click()
+ })
+
+ Cypress.Commands.add('search',(keyword)=>{
+    cy.get('.d-none > .navbar-tool-icon-box').click()
+    cy.get('#id_query').type(keyword+'{enter}')
+
+ })
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
